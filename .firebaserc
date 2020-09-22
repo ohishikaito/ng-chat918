@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "ngchat918"
+  },
+  "targets": {
+    "ngchat918": {
+      "hosting": {
+        "ng-chat918": [
+          "ngchat918"
+        ]
+      }
+    }
+  }
+}

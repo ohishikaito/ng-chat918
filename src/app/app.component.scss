@@ -1,14 +1,3 @@
-.page {
-  max-width: 960px;
-  height: 100%;
-  margin: 0 auto;
-  padding: 10px;
-  background-color: #fff;
-  border-left: 1px solid #dddddd;
-  border-right: 1px solid #dddddd;
-  box-shadow: 0 0 15px #dddddd;
-}
-
 .page .card .media-body {
   padding: 18px;
   margin: 0 10px;
@@ -47,6 +36,34 @@
   background-color: #5cb85c;
 }
 
-.page .chart-form {
-  margin: 20px 0;
+.page {
+  /*更新*/
+  max-width: 960px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 10px 0;
+  background-color: #fff;
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  box-shadow: 0 0 15px #dddddd;
+  overflow: scroll;
+}
+
+.page section {
+  /*追加*/
+  margin: 0 10px 30px;
+}
+
+.page .page-footer {
+  /*追加*/
+  display: block;
+  position: fixed;
+  margin: 0;
+  padding: 10px;
+  bottom: 0;
+  height: 55px;
+  width: 100%;
+  max-width: 958px;
+  background-color: #fff;
+  border-top: 1px solid #dddddd;
 }

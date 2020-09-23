@@ -3,7 +3,7 @@
 // なんでclass/chat.tsなのにcommentクラス作るん？
 
 import * as moment from 'moment';
-import { deserialize } from 'v8';
+// import { deserialize } from 'v8';
 
 export class User {
   uid: number;

@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   // templateUrl: './app.component.html',
   template: `
     <app-header></app-header>
-    <app-chat></app-chat>
+    <router-outlet></router-outlet>
   `,
 })
 export class AppComponent {

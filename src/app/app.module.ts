@@ -13,9 +13,10 @@ import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { ChatComponent } from './chat/chat.component';
 import { HeaderComponent } from './header/header.component';
+import { PageNotFoundComponent } from './error/page-not-found/page-not-found.component';
 
 @NgModule({
-  declarations: [AppComponent, ChatComponent, HeaderComponent],
+  declarations: [AppComponent, ChatComponent, HeaderComponent, PageNotFoundComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

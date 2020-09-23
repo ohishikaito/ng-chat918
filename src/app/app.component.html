@@ -2,7 +2,7 @@
   <section class="card">
     <div class="card-header">NgChat</div>
     <div class="card-body">
-      <ng-container *ngFor="let comment of comments">
+      <ng-container *ngFor="let comment of comments | async">
         <div class="media">
           <!--current_user.uidとcomment.user.uidが等しくない場合に表示-->
           <div class="media-left" *ngIf="comment.user.uid !== currentUser.uid">
@@ -11,10 +11,46 @@
           <div class="media-body">
             <h4 class="media-heading">
               {{ comment.user.name }} Date: {{ comment.date | chatDate }}
+              <button
+                class="btn btn-primary btn-sm"
+                (click)="toggleEditComment(comment)"
+              >
+                編集</button
+              ><!-- 追加 -->
+              <button
+                class="btn btn-danger btn-sm"
+                (click)="deleteComment(comment.key)"
+              >
+                削除</button
+              ><!-- 追加 -->
             </h4>
-            <div>
+            <ng-container *ngIf="!comment.editFlag">
               {{ comment.content }}
-            </div>
+            </ng-container>
+            <ng-container *ngIf="comment.editFlag">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="comment.content"
+                  name="edit_comment"
+                />
+              </div>
+              <div class="edit-buttons">
+                <button
+                  class="btn btn-success btn-sm"
+                  (click)="saveEditComment(comment)"
+                >
+                  保存
+                </button>
+                <button
+                  class="btn btn-warning btn-sm"
+                  (click)="resetEditComment(comment)"
+                >
+                  リセット
+                </button>
+              </div>
+            </ng-container>
           </div>
           <!--current_user.uidとcomment.user.uidが等しい場合に表示-->
           <div class="media-right" *ngIf="comment.user.uid === currentUser.uid">
@@ -23,7 +59,7 @@
         </div>
         <hr />
       </ng-container>
-      <div class="media">
+      <!-- <div class="media">
         <div class="media-left">
           <a href="#" class="icon-rounded">{{ (item | async)?.initial }}</a>
         </div>
@@ -31,12 +67,12 @@
           <h4 class="media-heading">{{ (item | async)?.user.name }}</h4>
           <div>{{ (item | async)?.content }}</div>
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
 
   <section>
-    <form class="chart-form" (submit)="addComment(content)">
+    <form class="chart-form" (submit)="addComment($event, content)">
       <div class="input-group">
         <input
           type="text"
